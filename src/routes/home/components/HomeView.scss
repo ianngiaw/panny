@@ -1,0 +1,17 @@
+.getStarted {
+  margin-top: 75vh;
+}
+
+.getStartedBtn,
+.getStartedBtn:active,
+.getStartedBtn:focus,
+.getStartedBtn:active:focus,
+.getStartedBtn:visited,
+.getStartedBtn:hover {
+  border-color: white;
+  box-shadow: none;
+  border-radius: 25px;
+  color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(0, 0, 0, 0.01);
+}
+

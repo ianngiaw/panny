@@ -14,10 +14,10 @@ class MainLayout extends Component {
 
   render() {
     const { children } = this.props;
-    const isActive = true;
+    const isActive = false;
     return (
       <Grid fluid={true} className={classes.mainContainer}>
-        <div className={classes.overlay} />
+        {isActive ? <div className={classes.overlay} /> : ''}
         <Header isActive={isActive} />
         {children}
       </Grid>
