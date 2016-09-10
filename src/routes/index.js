@@ -1,6 +1,6 @@
 import MainLayout from '../components/MainLayout/MainLayout';
 import HomeContainer from './home/containers/HomeContainer';
-import MyRoute from './my_route';
+import Chat from './chat';
 
 const createRoutes = store => ({
   path: '/',
@@ -9,7 +9,7 @@ const createRoutes = store => ({
     component: HomeContainer
   },
   childRoutes: [
-    MyRoute(store)
+    Chat(store)
   ]
 });
 
