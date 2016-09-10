@@ -1,6 +1,14 @@
 .mainContainer {
-    background: url(http://i.imgur.com/jssuYrn.png) no-repeat center center;
-    background-size: cover;
-    height: 100vh;
+
+}
+
+.overlay {
+  margin-left: -15px;
+  margin-right: -15px;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  z-index: -98;
+  background-color: rgba(0, 0, 0, 0.8)
 }
 

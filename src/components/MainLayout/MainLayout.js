@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import {
-  Grid,
-  Row
+  Grid
 } from 'react-bootstrap';
 
 import Header from '../Header/Header';
@@ -18,10 +17,9 @@ class MainLayout extends Component {
     const isActive = true;
     return (
       <Grid fluid={true} className={classes.mainContainer}>
+        <div className={classes.overlay} />
         <Header isActive={isActive} />
-        <Row>
-          {children}
-        </Row>
+        {children}
       </Grid>
     );
   }

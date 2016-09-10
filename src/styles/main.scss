@@ -1,6 +1,19 @@
 @import url('https://fonts.googleapis.com/css?family=Catamaran');
 
 body {
+  background-color: black;
+  overflow-y: hidden;
   margin: 0;
   font-family: 'Catamaran', sans-serif;
+
+}
+
+.bgImage {
+  position: fixed;
+  z-index: -99;
+  max-width: 100vw;
+  .active {
+    opacity: 0.25;
+    filter: blur(2px);
+  }
 }

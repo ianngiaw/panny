@@ -7,8 +7,6 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 import createStore from './store/createStore';
 import AppContainer from './containers/AppContainer';
 
-import './styles/main.scss';
-
 injectTapEventPlugin();
 const store = createStore({}, hashHistory);
 const history = syncHistoryWithStore(hashHistory, store, {
