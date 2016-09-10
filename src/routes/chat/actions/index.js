@@ -1,8 +1,8 @@
-import { MY_ROUTE_ACION } from '../constants';
+import { SET_IS_LOADING } from '../constants';
 
 export const myAction = () => {
   return dispatch => {
-    dispatch({ type: MY_ROUTE_ACION });
+    dispatch({ type: SET_IS_LOADING });
   };
 };
 

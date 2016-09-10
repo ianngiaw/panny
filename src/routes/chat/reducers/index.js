@@ -1,4 +1,6 @@
-import { MY_ROUTE_ACION } from '../constants';
+import {
+  SET_IS_LOADING
+} from '../constants';
 
 const initialState = {
   isLoading: false
@@ -6,7 +8,7 @@ const initialState = {
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case MY_ROUTE_ACION:
+    case SET_IS_LOADING:
       return Object.assign({}, state, {
         isLoading: true
       });

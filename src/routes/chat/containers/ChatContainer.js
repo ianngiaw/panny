@@ -5,7 +5,7 @@ import { actionCreators } from '../actions';
 import ChatView from '../components/ChatView';
 
 const mapStateToProps = state => ({
-  actionCompleted: state.chat.actionCompleted
+  isLoading: state.chat.isLoading
 });
 
 const mapDispatchToProps = dispatch => ({

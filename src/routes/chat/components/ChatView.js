@@ -4,7 +4,7 @@ class MyRouteView extends Component {
   render() {
     return (
       <div>
-        My Route!
+        Chat view!
       </div>
     );
   }
