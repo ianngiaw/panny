@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import {
+  Grid
+} from 'react-bootstrap';
 
 class HomeView extends Component {
   render() {
     return (
-      <div>
-        <img src="http://i.imgur.com/jssuYrn.png"/>
-      </div>
+      <Grid>
+      </Grid>
     );
   }
 }

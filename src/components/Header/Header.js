@@ -1,14 +1,16 @@
-import React, { Component } from 'react';
-import classes from './Header.scss';
+import React, { PropTypes } from 'react';
+import {
+  Row
+} from 'react-bootstrap';
+// import classes from './Header.scss';
 
-class Header extends Component {
-  render() {
-    return (
-      <div className={classes.headerContent}>
-        Header
-      </div>
-    );
-  }
-}
+export const Header = ({ isActive }) => (
+  <Row>{isActive}</Row>
+);
+
+Header.propTypes = {
+  isActive: PropTypes.bool.isRequired
+};
 
 export default Header;
+
