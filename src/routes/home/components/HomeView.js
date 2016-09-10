@@ -4,7 +4,7 @@ class HomeView extends Component {
   render() {
     return (
       <div>
-        <img src="../../../images/background.png"/>
+        <img src="http://i.imgur.com/jssuYrn.png"/>
       </div>
     );
   }

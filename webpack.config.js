@@ -59,16 +59,6 @@ module.exports = {
       {
         test: /\.scss$/,
         loader: "style!css?modules!sass"
-      },
-      {
-        test: /\.(jpg|png)$/,
-        loader: 'url?limit=25000',
-        include: './src/images'
-      },
-      {
-        test: /\.(jpg|png)$/,
-        loader: 'file?name=[path][name].[hash].[ext]',
-        include: './src/images'
       }
     ]
   }
