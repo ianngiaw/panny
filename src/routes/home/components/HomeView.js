@@ -5,6 +5,7 @@ import {
   Col,
   Button
 } from 'react-bootstrap';
+import { Link } from 'react-router';
 import classes from './HomeView.scss';
 
 class HomeView extends Component {
@@ -12,8 +13,10 @@ class HomeView extends Component {
     return (
       <Grid>
         <Row>
-          <Col xs={4} xsOffset={4} className={classes.getStarted}>
-            <Button className={classes.getStartedBtn} bsSize="lg">Get Started</Button>
+          <Col xs={8} xsOffset={2} className={classes.getStarted}>
+            <Link to="/chat">
+              <Button className={classes.getStartedBtn} bsSize="lg">Get Started</Button>
+            </Link>
           </Col>
         </Row>
       </Grid>
