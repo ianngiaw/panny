@@ -3,7 +3,6 @@ import {
   Grid
 } from 'react-bootstrap';
 
-import Header from '../Header/Header';
 import classes from './MainLayout.scss';
 
 class MainLayout extends Component {
@@ -15,14 +14,13 @@ class MainLayout extends Component {
   render() {
     const { children } = this.props;
     const isActive = this.props.location.pathname === '/chat';
-    const bgImageUrl = isActive ? 'http://i.imgur.com/sS3pZMY.png': 'http://i.imgur.com/PYOgeoO.png';
-    const bgImageClass = isActive ? classes.bgImage : classes.bgImageActive;
+    const bgImageUrl = 'http://i.imgur.com/PYOgeoO.png';
+    const bgImageClass = isActive ? classes.bgImageActive : classes.bgImage;
     return (
       <div>
         <img className={bgImageClass} src={bgImageUrl} />
-        <Grid fluid={true} className={classes.mainContainer}>
+        <Grid fluid={true}>
           {children}
-          <Header isActive={isActive} />
         </Grid>
       </div>
     );
