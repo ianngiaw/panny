@@ -29,7 +29,7 @@ class CurrentFlightCard extends Component {
     } = this.props;
 
     return (
-      <Grid>
+      <Grid className={classes.currentFlightCard}>
         <Row>
           <Col xs={3} className={classes.airportLeft}>
             { origin }
