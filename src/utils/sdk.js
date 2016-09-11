@@ -45,9 +45,11 @@ export const getNextFlightData = () => {
     inflight.initService('connecting_gate/v1', nextFlightData => {
       nextFlightData.connectingGateInfo({}, function(err, data) {
         resolve({
+          origin: data.current_flight.arrival_airport.iata_code,
+          destination: data.connecting_flights[0].arrival_airport.iata_code,
           departureGate: data.connecting_flights[0].departure_gate,
-          estimatedDepartureTime: data.connecting_flights[0].departure_time_estimated,
-          scheduledDepartureTime: data.connecting_flights[0].departure_time_scheduled
+          departureTime: data.connecting_flights[0].departure_time_scheduled,
+          flightNumber: data.connecting_flights[0].flight_number
         });
       });
     });
