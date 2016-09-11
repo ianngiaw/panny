@@ -9,7 +9,7 @@ import Pill from '../../../components/Pill';
 
 export class ChatUserInput extends Component {
   static propTypes = {
-    buttons: PropTypes.buttons
+    buttons: PropTypes.array
   }
 
   render() {

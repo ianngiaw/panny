@@ -8,7 +8,7 @@ class MyRouteView extends Component {
   render() {
     // const { chatItems, buttons } = this.props;
     let chatItems = [];
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 102; i++) {
       chatItems.push(i);
     }
 

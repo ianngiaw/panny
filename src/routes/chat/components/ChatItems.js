@@ -3,19 +3,33 @@ import {
   Row,
   Col
 } from 'react-bootstrap';
+import Scroll from 'react-scroll';
 import uuid from 'uuid';
 import classes from './ChatItems.scss';
 
+const scroll = Scroll.animateScroll;
+const Element = Scroll.Element;
+
 export class ChatItems extends Component {
   static propTypes = {
-    chatItems: PropTypes.array.isRequired
+    chatItems: PropTypes.array
+  }
+
+  componentDidUpdate() {
+    scroll.scrollToBottom({
+      containerId: 'chatItems',
+      delay: 500,
+      to: 'endChatItems'
+    });
   }
 
   render() {
     const { chatItems } = this.props;
+
     return (
-      <Row className={classes.content}>
+      <Row id="chatItems" className={classes.content}>
         {this._renderChatItems(chatItems)}
+        <Element name="endChatItems" className="element"></Element>
       </Row>
     );
   }
@@ -35,7 +49,7 @@ export class ChatItems extends Component {
         return <Col key={uuid.v4()}>Item</Col>;
     }
     */
-    return <Col key={uuid.v4()}>{item}</Col>;
+    return <Col xs={12} key={uuid.v4()}>{item}</Col>;
   }
 }
 

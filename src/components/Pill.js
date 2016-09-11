@@ -7,7 +7,7 @@ export const Pill = ({ children }) => (
 );
 
 Pill.propTypes = {
-  children: PropTypes.string.isRequired
+  children: PropTypes.any.isRequired
 };
 
 export default Pill;
