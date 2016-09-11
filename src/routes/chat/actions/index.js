@@ -1,9 +1,13 @@
 import {
   SET_IS_LOADING,
-  GET_FLIGHT_INFO_SUCCESS
+  GET_FLIGHT_INFO_SUCCESS,
+  GET_NEXT_FLIGHT_INFO_SUCCESS
 } from '../constants';
 
-import { getCurrentFlightInfo } from '../../../utils/sdk';
+import {
+  getCurrentFlightInfo,
+  getNextFlightData
+} from '../../../utils/sdk';
 
 export const getFlightInfo = () => {
   return dispatch => {
@@ -17,6 +21,19 @@ export const getFlightInfo = () => {
   };
 };
 
+export const getNextFlightInfo = () => {
+  return dispatch => {
+    dispatch({ type: SET_IS_LOADING });
+    getNextFlightData().then(payload => {
+      dispatch({
+        type: GET_NEXT_FLIGHT_INFO_SUCCESS,
+        payload
+      });
+    });
+  };
+};
+
 export const actionCreators = {
-  getFlightInfo
+  getFlightInfo,
+  getNextFlightInfo
 };

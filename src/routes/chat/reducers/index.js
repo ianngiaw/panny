@@ -1,6 +1,7 @@
 import {
   SET_IS_LOADING,
-  GET_FLIGHT_INFO_SUCCESS
+  GET_FLIGHT_INFO_SUCCESS,
+  GET_NEXT_FLIGHT_INFO_SUCCESS
 } from '../constants';
 
 const initialState = {
@@ -15,6 +16,7 @@ export const reducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         isLoading: true
       });
+
     case GET_FLIGHT_INFO_SUCCESS:
       return Object.assign({}, state, {
         isLoading: false,
@@ -30,6 +32,16 @@ export const reducer = (state = initialState, action) => {
           }
         }]
       });
+
+    case GET_NEXT_FLIGHT_INFO_SUCCESS:
+      return Object.assign({}, state, {
+        isLoading: false,
+        chatItems: [...state.chatItems, {
+          type: 'NextFlightCard',
+          data: action.payload
+        }]
+      });
+      
     default:
       return state;
   }
