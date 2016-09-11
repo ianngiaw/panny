@@ -23,6 +23,30 @@ export class ChatItems extends Component {
     chatItems: PropTypes.array
   }
 
+  componentDidMount() {
+    const elem = document.querySelector('#chatItems');
+    elem.addEventListener('touchstart', function(event) {
+      this.allowUp = (this.scrollTop > 0);
+      this.allowDown = (this.scrollTop < this.scrollHeight - this.clientHeight);
+      this.prevTop = null;
+      this.prevBot = null;
+      this.lastY = event.pageY;
+    });
+
+    elem.addEventListener('touchmove', function(event) {
+      let up = (event.pageY > this.lastY);
+      let down = !up;
+
+      this.lastY = event.pageY;
+
+      if ((up && this.allowUp) || (down && this.allowDown)) {
+        event.stopPropagation();
+      } else {
+        event.preventDefault();
+      }
+    });
+  }
+
   componentDidUpdate() {
     scroll.scrollToBottom({
       containerId: 'chatItems',
