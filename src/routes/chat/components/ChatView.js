@@ -1,21 +1,24 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import classes from './ChatView.scss';
 
 import ChatItems from './ChatItems';
 import ChatUserInput from './ChatUserInput';
 
 class MyRouteView extends Component {
-  render() {
-    // const { chatItems, buttons } = this.props;
-    let chatItems = [];
-    for (let i = 0; i < 102; i++) {
-      chatItems.push(i);
-    }
+  static propTypes = {
+    actions: PropTypes.object.isRequired,
+    chatItems: PropTypes.array.isRequired,
+    buttons: PropTypes.array.isRequired
+  };
 
-    let buttons = [];
-    for (let i = 0; i < 10; i++) {
-      buttons.push(i);
-    }
+  componentDidMount() {
+    this.props.actions.initialLaunch();
+  }
+
+  render() {
+    const { chatItems, buttons } = this.props;
+
+    console.log(chatItems); // eslint-disable-line
 
     return (
       <div className={classes.chatView}>
@@ -27,4 +30,3 @@ class MyRouteView extends Component {
 }
 
 export default MyRouteView;
-
