@@ -1,7 +1,18 @@
 .pannyTextContainer {
   padding-top: 24px;
   padding-bottom: 24px;
+  animation: fadeInLoad 0.5s;
 }
+
+@keyframes fadeInLoad {
+  from {
+    opacity:0;
+  }
+  to {
+    opacity:1;
+  }
+}
+
 
 .pannyText {
   color: white;
