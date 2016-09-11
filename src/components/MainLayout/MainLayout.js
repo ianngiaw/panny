@@ -15,7 +15,7 @@ class MainLayout extends Component {
   render() {
     const { children } = this.props;
     const isActive = this.props.location.pathname === '/chat';
-    const bgImageUrl = isActive ? 'http://imgur.com/3wjgdxt.png': 'http://i.imgur.com/jssuYrn.png';
+    const bgImageUrl = isActive ? 'http://i.imgur.com/sS3pZMY.png': 'http://i.imgur.com/PYOgeoO.png';
     const bgImageClass = isActive ? classes.bgImage : classes.bgImageActive;
     return (
       <div>
