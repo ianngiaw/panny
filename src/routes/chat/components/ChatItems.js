@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import {
   Row,
   Col
@@ -13,6 +14,7 @@ import PannyText from './PannyText';
 import UserText from './UserText';
 
 import classes from './ChatItems.scss';
+import transitionClasses from './CardTransition.scss';
 
 const scroll = Scroll.animateScroll;
 const Element = Scroll.Element;
@@ -59,7 +61,14 @@ export class ChatItems extends Component {
 
     return (
       <Row id="chatItems" className={classes.content}>
-        {this._renderChatItems(chatItems)}
+        <ReactCSSTransitionGroup
+          transitionName={{
+            enter: transitionClasses.transitioncardEnter,
+            enterActive: transitionClasses.transitioncardEnterActive
+          }}
+        >
+          {this._renderChatItems(chatItems)}
+        </ReactCSSTransitionGroup>
         <Element name="endChatItems" className="element"></Element>
       </Row>
     );
