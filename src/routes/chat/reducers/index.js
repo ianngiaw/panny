@@ -1,3 +1,4 @@
+import moment from 'moment';
 import {
   SET_IS_LOADING,
   GET_FLIGHT_INFO_SUCCESS,
@@ -38,10 +39,16 @@ export const reducer = (state = initialState, action) => {
         isLoading: false,
         chatItems: [...state.chatItems, {
           type: 'NextFlightCard',
-          data: action.payload
+          data: {
+            origin: action.payload.origin,
+            destination: action.payload.destination,
+            flightNumber: action.payload.flightNumber,
+            departureGate: action.payload.departureGate,
+            departureTime: moment(action.payload.departureTime).format('HH:mm')
+          }
         }]
       });
-      
+
     default:
       return state;
   }
