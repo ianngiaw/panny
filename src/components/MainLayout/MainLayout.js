@@ -9,18 +9,22 @@ import classes from './MainLayout.scss';
 class MainLayout extends Component {
   static propTypes = {
     children: PropTypes.element.isRequired,
-    isActive: PropTypes.bool
+    location: PropTypes.object
   };
 
   render() {
     const { children } = this.props;
-    const isActive = false;
+    const isActive = this.props.location.pathname === '/chat';
+    const bgImageUrl = isActive ? 'http://imgur.com/3wjgdxt.png': 'http://i.imgur.com/jssuYrn.png';
+    const bgImageClass = isActive ? classes.bgImage : classes.bgImageActive;
     return (
-      <Grid fluid={true} className={classes.mainContainer}>
-        {isActive ? <div className={classes.overlay} /> : ''}
-        <Header isActive={isActive} />
-        {children}
-      </Grid>
+      <div>
+        <img className={bgImageClass} src={bgImageUrl} />
+        <Grid fluid={true} className={classes.mainContainer}>
+          {children}
+          <Header isActive={isActive} />
+        </Grid>
+      </div>
     );
   }
 }

@@ -2,13 +2,15 @@
 
 }
 
-.overlay {
-  margin-left: -15px;
-  margin-right: -15px;
+.bgImage {
+  transition: opacity 1s ease-in-out;
   position: fixed;
-  height: 100vh;
-  width: 100vw;
-  z-index: -98;
-  background-color: rgba(0, 0, 0, 0.8)
+  z-index: -99;
+  max-width: 100vw;
+}
+
+.bgImageActive {
+  @extend .bgImage;
+  opacity: 0.8;
 }
 

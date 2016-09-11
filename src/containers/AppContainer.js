@@ -3,8 +3,6 @@ import { Router } from 'react-router';
 import { Provider } from 'react-redux';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-import classes from '../styles/main.scss';
-
 class AppContainer extends Component {
 
   static propTypes = {
@@ -20,7 +18,6 @@ class AppContainer extends Component {
       <Provider store={store}>
         <MuiThemeProvider>
           <div>
-            <img className={classes.bgImage} src="http://i.imgur.com/jssuYrn.png" />
             <Router history={history} children={routes} />
           </div>
         </MuiThemeProvider>
