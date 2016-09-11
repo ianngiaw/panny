@@ -1,6 +1,7 @@
 .content {
   height: 90vh;
   overflow-y: scroll;
+  overflow-x: hidden;
   ::-webkit-scrollbar {
     display: none;
   }
