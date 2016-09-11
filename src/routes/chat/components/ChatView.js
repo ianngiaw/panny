@@ -21,7 +21,7 @@ class MyRouteView extends Component {
     return (
       <div className={classes.chatView}>
         <ChatItems chatItems={chatItems} />
-        <ChatUserInput buttons={buttons} />
+        <ChatUserInput buttons={buttons} onPillPressed={this.props.actions.selectButton} />
       </div>
     );
   }

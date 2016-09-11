@@ -13,7 +13,11 @@ import {
 const initialState = {
   isLoading: false,
   chatItems: [],
-  buttons: ['Meals', 'Restrooms', 'Shopping']
+  buttons: [
+    { label: 'Meals', value: 'GET_MEALS'},
+    { label: 'Restrooms', value: 'GET_RESTROOMS'},
+    { label: 'Shopping', value: 'GET_SHOPPING'}
+  ]
 };
 
 export const reducer = (state = initialState, action) => {
@@ -29,13 +33,27 @@ export const reducer = (state = initialState, action) => {
       });
 
     case ADD_RESTROOM_CARD:
-      return Object.assign({}, state, {
-        isLoading: false,
-        chatItems: [...state.chatItems, {
-          type: 'RestroomCard',
-          data: action.payload
-        }]
-      });
+      if (action.payload.isFull) {
+        return Object.assign({}, state, {
+          isLoading: false,
+          chatItems: [...state.chatItems, {
+            type: 'RestroomCard',
+            data: action.payload
+          }],
+          buttons: [
+            { label: 'Notify', value: 'NOTIFY_RESTROOM'},
+            { label: 'Okay', value: 'OKAY_RESTROOM'}
+          ]
+        });
+      } else {
+        return Object.assign({}, state, {
+          isLoading: false,
+          chatItems: [...state.chatItems, {
+            type: 'RestroomCard',
+            data: action.payload
+          }]
+        });
+      }
 
     case ADD_PANNY_TEXT:
       return Object.assign({}, state, {
@@ -94,7 +112,12 @@ export const reducer = (state = initialState, action) => {
           data: {
             foodItems: action.payload
           }
-        }]
+        }],
+        buttons: [
+          { label: 'Select', value: 'SELECT_MEAL'},
+          { label: 'More Info', value: 'VIEW_MEAL_NUTRITIONAL_INFO'},
+          { label: 'I\'ll pick later', value: 'PICK_MEAL_LATER'}
+        ]
       });
 
     default:

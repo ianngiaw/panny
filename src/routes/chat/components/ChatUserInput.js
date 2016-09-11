@@ -9,25 +9,27 @@ import Pill from '../../../components/Pill';
 
 export class ChatUserInput extends Component {
   static propTypes = {
-    buttons: PropTypes.array
+    buttons: PropTypes.array,
+    onPillPressed: PropTypes.func.isRequired
   }
 
   render() {
-    const { buttons } = this.props;
+    const { buttons, onPillPressed } = this.props;
+
+    const buttonActionGenerator = value => () => onPillPressed(value);
 
     return (
       <Row className={classes.content}>
-        {this._renderUserInput(buttons)}
+        {this._renderUserInput(buttons, buttonActionGenerator)}
       </Row>
     );
   }
 
-  _renderUserInput(buttons) {
+  _renderUserInput(buttons, buttonActionGenerator) {
     return buttons.map(button => (
-      <Pill key={uuid.v4()}>{button}</Pill>
+      <Pill key={uuid.v4()} onClick={buttonActionGenerator(button.value)}>{button.label}</Pill>
     ));
   }
 }
 
 export default ChatUserInput;
-
