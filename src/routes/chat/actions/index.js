@@ -1,5 +1,6 @@
 import {
   SET_IS_LOADING,
+  SET_FOOD_SELECTED,
   RESET_BUTTONS,
   GET_FLIGHT_INFO_SUCCESS,
   GET_NEXT_FLIGHT_INFO_SUCCESS,
@@ -27,6 +28,7 @@ export const selectButton = value => {
         break;
       case 'SELECT_MEAL':
         dispatch(addPannyText('Got it!'));
+        dispatch(setFoodSelected());
         dispatch(resetButtons());
         break;
       case 'PICK_MEAL_LATER':
@@ -83,6 +85,8 @@ export const initialLaunch = () => {
   };
 };
 
+export const setFoodSelected = () => dispatch => dispatch({type: SET_FOOD_SELECTED});
+
 export const addPannyText = text => {
   return dispatch => {
     dispatch({ type: ADD_PANNY_TEXT, payload: { text } });
@@ -133,13 +137,13 @@ export const getFoodItems = () => {
         type: GET_FOOD_ITEMS_SUCCESS,
         payload: [{
           name: 'Bolognese Pasta',
-          image: 'http://i.imgur.com/w6B5iX5.jpg'
+          image: 'http://i.imgur.com/Y5UJ0tl.jpg'
         },{
           name: 'Salmon',
-          image: 'http://i.imgur.com/Eu0unYs.jpg'
+          image: 'http://i.imgur.com/wtPgLlU.jpg'
         },{
           name: 'Salad',
-          image: 'http://i.imgur.com/9k0482t.jpg'
+          image: 'http://i.imgur.com/VZiagk9.jpg'
         }]
       });
     }, 200);

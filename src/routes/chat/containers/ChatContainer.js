@@ -7,7 +7,8 @@ import ChatView from '../components/ChatView';
 const mapStateToProps = state => ({
   isLoading: state.chat.isLoading,
   chatItems: state.chat.chatItems,
-  buttons: state.chat.buttons
+  buttons: state.chat.buttons,
+  isFoodSelected: state.chat.isFoodSelected
 });
 
 const mapDispatchToProps = dispatch => ({

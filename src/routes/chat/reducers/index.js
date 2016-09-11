@@ -1,6 +1,7 @@
 import moment from 'moment';
 import {
   SET_IS_LOADING,
+  SET_FOOD_SELECTED,
   RESET_BUTTONS,
   ADD_RESTROOM_CARD,
   ADD_PANNY_TEXT,
@@ -17,7 +18,8 @@ const initialState = {
     { label: 'Meals', value: 'GET_MEALS'},
     { label: 'Restrooms', value: 'GET_RESTROOMS'},
     { label: 'Shopping', value: 'GET_SHOPPING'}
-  ]
+  ],
+  isFoodSelected: false
 };
 
 export const reducer = (state = initialState, action) => {
@@ -25,6 +27,11 @@ export const reducer = (state = initialState, action) => {
     case SET_IS_LOADING:
       return Object.assign({}, state, {
         isLoading: true
+      });
+
+    case SET_FOOD_SELECTED:
+      return Object.assign({}, state, {
+        isFoodSelected: true
       });
 
     case RESET_BUTTONS:

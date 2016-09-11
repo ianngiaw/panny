@@ -8,7 +8,8 @@ class MyRouteView extends Component {
   static propTypes = {
     actions: PropTypes.object.isRequired,
     chatItems: PropTypes.array.isRequired,
-    buttons: PropTypes.array.isRequired
+    buttons: PropTypes.array.isRequired,
+    isFoodSelected: PropTypes.bool.isRequired
   };
 
   componentDidMount() {
@@ -16,12 +17,18 @@ class MyRouteView extends Component {
   }
 
   render() {
-    const { chatItems, buttons } = this.props;
+    const { chatItems, buttons, isFoodSelected } = this.props;
 
     return (
       <div className={classes.chatView}>
-        <ChatItems chatItems={chatItems} />
-        <ChatUserInput buttons={buttons} onPillPressed={this.props.actions.selectButton} />
+        <ChatItems
+          chatItems={chatItems}
+          isFoodSelected={isFoodSelected}
+        />
+        <ChatUserInput
+          buttons={buttons}
+          onPillPressed={this.props.actions.selectButton}
+        />
       </div>
     );
   }

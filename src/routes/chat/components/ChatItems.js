@@ -21,7 +21,8 @@ const Element = Scroll.Element;
 
 export class ChatItems extends Component {
   static propTypes = {
-    chatItems: PropTypes.array
+    chatItems: PropTypes.array,
+    isFoodSelected: PropTypes.bool
   }
 
   componentDidMount() {
@@ -57,7 +58,7 @@ export class ChatItems extends Component {
   }
 
   render() {
-    const { chatItems } = this.props;
+    const { chatItems, isFoodSelected } = this.props;
 
     return (
       <Row id="chatItems" className={classes.content}>
@@ -69,24 +70,24 @@ export class ChatItems extends Component {
           transitionEnterTimeout={1000}
           transitionLeaveTimeout={1000}
         >
-          {this._renderChatItems(chatItems)}
+          {this._renderChatItems(chatItems, isFoodSelected)}
         </ReactCSSTransitionGroup>
         <Element name="endChatItems" className="element"></Element>
       </Row>
     );
   }
 
-  _renderChatItems(items) {
-    return items.map(this._renderChatItem);
+  _renderChatItems(items, isFoodSelected) {
+    return items.map((item, index) => this._renderChatItem(item, index, isFoodSelected));
   }
 
-  _renderChatItem(item, index) {
+  _renderChatItem(item, index, isFoodSelected) {
     const data = item.data;
     switch (item.type) {
       case 'CurrentFlightCard':
         return (<CurrentFlightCard key={index} {...data} />);
       case 'FoodCard':
-        return (<FoodCard key={index} {...data} />);
+        return (<FoodCard key={index} {...data} isFoodSelected={isFoodSelected} />);
       case 'NextFlightCard':
         return (<NextFlightCard key={index} {...data} />);
       case 'RestroomCard':

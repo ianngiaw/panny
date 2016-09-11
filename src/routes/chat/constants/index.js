@@ -1,4 +1,5 @@
 export const SET_IS_LOADING = 'SET_IS_LOADING';
+export const SET_FOOD_SELECTED = 'SET_FOOD_SELECTED';
 export const RESET_BUTTONS = 'RESET_BUTTONS';
 
 export const ADD_RESTROOM_CARD = 'ADD_RESTROOM_CARD';
