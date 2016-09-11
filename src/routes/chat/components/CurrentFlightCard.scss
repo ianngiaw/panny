@@ -1,0 +1,60 @@
+.topRowItem {
+  min-height: 60px;
+}
+
+.airport {
+  @extend .topRowItem;
+  align-items: center;
+  color: white;
+  display: flex;
+  font-size: 2.0em;
+  font-weight: bold;
+}
+
+.airportLeft {
+  @extend .airport;
+  justify-content: flex-end;
+}
+
+.airportRight {
+  @extend .airport;
+  justify-content: flex-start;
+}
+
+.flightProgress {
+  @extend .topRowItem;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.circle {
+  background-color: white;
+  border-radius: 6px;
+  height: 12px;
+  width: 12px;
+}
+
+.bar {
+  background-color: white;
+  flex-grow: 2;
+  height: 4px;
+  margin-left: -3px;
+  margin-right: -3px;
+}
+
+.bottomRowItem {
+  color: white;
+  display: block;
+  text-align: center;
+}
+
+.bottomRowLabel {
+  @extend .bottomRowItem;
+  font-weight: bold;
+}
+
+.bottomRowValue {
+  @extend .bottomRowItem;
+  font-size: 1.5em;
+}
