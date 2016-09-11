@@ -66,6 +66,8 @@ export class ChatItems extends Component {
             enter: transitionClasses.transitioncardEnter,
             enterActive: transitionClasses.transitioncardEnterActive
           }}
+          transitionEnterTimeout={1000}
+          transitionLeaveTimeout={1000}
         >
           {this._renderChatItems(chatItems)}
         </ReactCSSTransitionGroup>
