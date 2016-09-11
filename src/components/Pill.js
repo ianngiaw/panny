@@ -1,12 +1,13 @@
-import React { PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 import { Button } from 'react-bootstrap';
+import classes from './Pill.scss';
 
 export const Pill = ({ children }) => (
-  
+  <Button className={classes.pill} bsSize='lg'>{children}</Button>
 );
 
 Pill.propTypes = {
-  children: PropTypes.
-}
+  children: PropTypes.element.isRequired
+};
 
-export default const Pill
+export default Pill;

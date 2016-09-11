@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import {
   Grid,
   Row,
-  Col,
-  Button
+  Col
 } from 'react-bootstrap';
 import { Link } from 'react-router';
 import classes from './HomeView.scss';
+
+import Pill from '../../../components/Pill';
 
 class HomeView extends Component {
   render() {
@@ -15,7 +16,7 @@ class HomeView extends Component {
         <Row>
           <Col xs={8} xsOffset={2} className={classes.getStarted}>
             <Link to="/chat">
-              <Button className={classes.getStartedBtn} bsSize="lg">Get Started</Button>
+              <Pill>Get Started</Pill>
             </Link>
           </Col>
         </Row>
