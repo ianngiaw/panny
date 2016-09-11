@@ -21,7 +21,7 @@ class RestroomCard extends Component {
           <Col xs={12}>
             <img
               className={classes.restroomImage}
-              src={ isFull ? 'http://i.imgur.com/EWrr79W.gif' : 'http://i.imgur.com/vnCfgBT.gif' }
+              src={ isFull ? 'http://i.imgur.com/uHfGQV6.gif' : 'http://i.imgur.com/1w4viBM.gif' }
             />
           </Col>
         </Row>
