@@ -1,5 +1,8 @@
 .content {
-  border-top: 1px solid lightgrey;
+  display: flex;
+  align-items: middle;
+  padding-top: 10px;
+  padding-bottom: 10px;
   height: 10vh;
   overflow-x: scroll;
   white-space: nowrap;

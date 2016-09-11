@@ -4,6 +4,9 @@
 .pill:active:focus,
 .pill:visited,
 .pill:hover {
+  margin-left: 10px;
+  margin-right: 10px;
+  min-width: 120px;
   border-color: white;
   box-shadow: none;
   border-radius: 25px;
