@@ -4,7 +4,6 @@ import {
   Col
 } from 'react-bootstrap';
 import Scroll from 'react-scroll';
-import uuid from 'uuid';
 
 import CurrentFlightCard from './CurrentFlightCard';
 import FoodCard from './FoodCard';
@@ -46,23 +45,23 @@ export class ChatItems extends Component {
     return items.map(this._renderChatItem);
   }
 
-  _renderChatItem(item) {
+  _renderChatItem(item, index) {
     const data = item.data;
     switch (item.type) {
       case 'CurrentFlightCard':
-        return (<CurrentFlightCard key={uuid.v4()} {...data} />);
+        return (<CurrentFlightCard key={index} {...data} />);
       case 'FoodCard':
-        return (<FoodCard key={uuid.v4()} {...data} />);
+        return (<FoodCard key={index} {...data} />);
       case 'NextFlightCard':
-        return (<NextFlightCard key={uuid.v4()} {...data} />);
+        return (<NextFlightCard key={index} {...data} />);
       case 'RestroomCard':
-        return (<RestroomCard key={uuid.v4()} {...data} />);
+        return (<RestroomCard key={index} {...data} />);
       case 'PannyText':
-        return (<PannyText key={uuid.v4()} {...data} />);
+        return (<PannyText key={index} {...data} />);
       case 'UserText':
-        return (<UserText key={uuid.v4()} {...data} />);
+        return (<UserText key={index} {...data} />);
       default:
-        return <Col key={uuid.v4()}>Item</Col>;
+        return <Col key={index}>Item</Col>;
     }
   }
 }
