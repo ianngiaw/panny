@@ -6,7 +6,7 @@ import {
 const initialState = {
   isLoading: false,
   chatItems: [],
-  buttons: []
+  buttons: ['Meals', 'Restrooms', 'Shopping']
 };
 
 export const reducer = (state = initialState, action) => {
