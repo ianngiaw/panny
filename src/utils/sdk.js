@@ -13,13 +13,24 @@ export const getPassengerName = () => {
   });
 };
 
-export const getTravelTime = () => {
+export const getCurrentFlightInfo = () => {
   return new Promise(resolve => {
     inflight.initService('flightdata/v2', flightData => {
-      flightData.estimatedArrivalTime((err, data) => {
-        resolve({
-          hours: data.hours,
-          minutes: data.minutes
+      flightData.originIATA((err, originIata) => {
+        flightData.destinationIATA((err, destIata) => {
+          flightData.distanceToDestination((err, distance) => {
+            flightData.timeToDestination((err, minutes) => {
+              flightData.estimatedArrivalTime((err, timeData) => {
+                resolve({
+                  time: timeData.raw,
+                  distance,
+                  minutes,
+                  originIata,
+                  destIata
+                });
+              });
+            });
+          });
         });
       });
     });

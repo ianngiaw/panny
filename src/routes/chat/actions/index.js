@@ -1,8 +1,19 @@
-import { SET_IS_LOADING } from '../constants';
+import {
+  SET_IS_LOADING,
+  GET_FLIGHT_INFO_SUCCESS
+} from '../constants';
 
-export const myAction = () => {
+import { getCurrentFlightInfo } from '../../../utils/sdk';
+
+export const getFlightInfo = () => {
   return dispatch => {
     dispatch({ type: SET_IS_LOADING });
+    getCurrentFlightInfo().then(payload => {
+      dispatch({
+        type: GET_FLIGHT_INFO_SUCCESS,
+        payload
+      });
+    })
   };
 };
 
