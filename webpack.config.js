@@ -3,7 +3,7 @@
 const webpack = require('webpack');
 const path = require('path');
 
-module.exports = {
+const webpackConfig = {
   entry: [
     'babel-polyfill',
     'webpack-dev-server/client?http://0.0.0.0:8080',
@@ -63,3 +63,9 @@ module.exports = {
     ]
   }
 }
+
+if (process.env.NODE_ENV === 'production') {
+  webpackConfig.plugins.push(new webpack.optimize.UglifyJsPlugin());
+}
+
+module.exports = webpackConfig;
