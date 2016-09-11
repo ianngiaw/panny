@@ -3,8 +3,10 @@ import {
   Row
 } from 'react-bootstrap';
 import Slider from 'react-slick';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import classes from './FoodCard.scss';
+import './CardTransition.scss';
 
 class FoodCard extends Component {
   static propTypes = {
@@ -15,22 +17,28 @@ class FoodCard extends Component {
     const { foodItems } = this.props;
 
     return (
-      <Row className={classes.foodCardContainer}>
-        <Slider
-          arrows={false}
-          infinite={true}
-          centerMode={true}
-        >
-          {foodItems.map((item, index) => {
-            return (
-              <div className={classes.foodItem} key={index}>
-                <div className={classes.foodName}>{item.name}</div>
-                <img className={classes.foodImage} src={item.image}/>
-              </div>
-            );
-          })}
-        </Slider>
+      <ReactCSSTransitionGroup
+        transitionName="transitioncard"
+        transitionEnterTimeout={1000}
+        transitionLeaveTimeout={1000}
+      >
+        <Row className={classes.foodCardContainer}>
+          <Slider
+            arrows={false}
+            infinite={true}
+            centerMode={true}
+          >
+            {foodItems.map((item, index) => {
+              return (
+                <div className={classes.foodItem} key={index}>
+                  <div className={classes.foodName}>{item.name}</div>
+                  <img className={classes.foodImage} src={item.image}/>
+                </div>
+              );
+            })}
+          </Slider>
         </Row>
+      </ReactCSSTransitionGroup>
     );
   }
 }

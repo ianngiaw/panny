@@ -1,0 +1,8 @@
+.transitioncard-enter {
+  opacity: 0;
+}
+
+.transitioncard-enter.transitioncard-enter-active {
+  opacity: 1;
+  transition: opacity 1000ms ease-in-out;
+}

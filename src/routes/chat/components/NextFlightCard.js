@@ -5,8 +5,10 @@ import {
   Col
 } from 'react-bootstrap';
 import { ActionFlightTakeoff } from 'material-ui/svg-icons';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import classes from './NextFlightCard.scss';
+import './CardTransition.scss';
 
 class NextFlightCard extends Component {
   static propTypes = {
@@ -27,45 +29,51 @@ class NextFlightCard extends Component {
     } = this.props;
 
     return (
-      <Grid className={classes.nextFlightCard}>
-        <Row>
-          <Col xs={3} className={classes.airportLeft}>
-            { origin }
-          </Col>
-          <Col xs={6} className={classes.flightProgress}>
-            <ActionFlightTakeoff
-              color="white"
-              style={{
-                height: '24px',
-                width: '24px',
-                position: 'absolute',
-                top: '10px',
-                left: '16px'
-              }}
-            />
-            <div className={classes.circle}></div>
-            <div className={classes.bar}></div>
-            <div className={classes.circle}></div>
-          </Col>
-          <Col xs={3} className={classes.airportRight}>
-            { destination }
-          </Col>
-        </Row>
-        <Row>
-          <Col xs={4}>
-            <div className={classes.bottomRowLabel}>Flight No.</div>
-            <div className={classes.bottomRowValue}>{ flightNumber }</div>
-          </Col>
-          <Col xs={4}>
-            <div className={classes.bottomRowLabel}>Gate</div>
-            <div className={classes.bottomRowValue}>{ departureGate }</div>
-          </Col>
-          <Col xs={4}>
-            <div className={classes.bottomRowLabel}>Time</div>
-            <div className={classes.bottomRowValue}>{ departureTime }</div>
-          </Col>
-        </Row>
-      </Grid>
+      <ReactCSSTransitionGroup
+        transitionName="transitioncard"
+        transitionEnterTimeout={1000}
+        transitionLeaveTimeout={1000}
+      >
+        <Grid className={classes.nextFlightCard}>
+          <Row>
+            <Col xs={3} className={classes.airportLeft}>
+              { origin }
+            </Col>
+            <Col xs={6} className={classes.flightProgress}>
+              <ActionFlightTakeoff
+                color="white"
+                style={{
+                  height: '24px',
+                  width: '24px',
+                  position: 'absolute',
+                  top: '10px',
+                  left: '16px'
+                }}
+              />
+              <div className={classes.circle}></div>
+              <div className={classes.bar}></div>
+              <div className={classes.circle}></div>
+            </Col>
+            <Col xs={3} className={classes.airportRight}>
+              { destination }
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={4}>
+              <div className={classes.bottomRowLabel}>Flight No.</div>
+              <div className={classes.bottomRowValue}>{ flightNumber }</div>
+            </Col>
+            <Col xs={4}>
+              <div className={classes.bottomRowLabel}>Gate</div>
+              <div className={classes.bottomRowValue}>{ departureGate }</div>
+            </Col>
+            <Col xs={4}>
+              <div className={classes.bottomRowLabel}>Time</div>
+              <div className={classes.bottomRowValue}>{ departureTime }</div>
+            </Col>
+          </Row>
+        </Grid>
+      </ReactCSSTransitionGroup>
     );
   }
 }
