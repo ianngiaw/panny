@@ -18,8 +18,6 @@ class MyRouteView extends Component {
   render() {
     const { chatItems, buttons } = this.props;
 
-    console.log(chatItems); // eslint-disable-line
-
     return (
       <div className={classes.chatView}>
         <ChatItems chatItems={chatItems} />

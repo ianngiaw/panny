@@ -19,8 +19,15 @@ export const initialLaunch = () => {
   return dispatch => {
     getPassengerName()
       .then(names => {
-        dispatch(addPannyText(`Hi, ${names.firstName}! Welcome onboard!`));
-        dispatch(getFlightInfo());
+        setTimeout(() => {
+          dispatch(addPannyText(`Hi, ${names.firstName}! Welcome onboard! Here's some information about the flight you're on.`)); // eslint-disable-line
+        }, 500);
+        setTimeout(() => {
+          dispatch(getFlightInfo());
+        }, 1000);
+        setTimeout(() => {
+          dispatch(addPannyText('Let me know if there\'s anything else you need.')); // eslint-disable-line
+        }, 1500);
       });
   };
 };
