@@ -18,15 +18,18 @@ export const getCurrentFlightInfo = () => {
     inflight.initService('flightdata/v2', flightData => {
       flightData.originIATA((err, originIata) => {
         flightData.destinationIATA((err, destIata) => {
-          flightData.distanceToDestination((err, distance) => {
-            flightData.timeToDestination((err, minutes) => {
-              flightData.estimatedArrivalTime((err, timeData) => {
-                resolve({
-                  time: timeData.raw,
-                  distance,
-                  minutes,
-                  originIata,
-                  destIata
+          flightData.distanceToDestination((err, distanceToDestination) => {
+            flightData.distanceToOrigin((err, distanceToOrigin) => {
+              flightData.timeToDestination((err, minutes) => {
+                flightData.estimatedArrivalTime((err, timeData) => {
+                  resolve({
+                    time: timeData.raw,
+                    progress: distanceToOrigin / (distanceToOrigin + distanceToDestination),
+                    distanceToDestination,
+                    minutes,
+                    originIata,
+                    destIata
+                  });
                 });
               });
             });

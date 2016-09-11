@@ -14,7 +14,8 @@ class CurrentFlightCard extends Component {
     destination: PropTypes.string.isRequired,
     estimatedArrival: PropTypes.string.isRequired,
     timeRemaining: PropTypes.string.isRequired,
-    distanceRemaining: PropTypes.string.isRequired
+    distanceRemaining: PropTypes.string.isRequired,
+    progress: PropTypes.number.isRequired
   };
 
   render() {
@@ -23,7 +24,8 @@ class CurrentFlightCard extends Component {
       destination,
       estimatedArrival,
       timeRemaining,
-      distanceRemaining
+      distanceRemaining,
+      progress
     } = this.props;
 
     return (
@@ -40,7 +42,7 @@ class CurrentFlightCard extends Component {
                 width: '24px',
                 position: 'absolute',
                 top: '10px',
-                left: '60px'
+                left: `${116 * progress + 16}px`
               }}
             />
             <div className={classes.circle}></div>

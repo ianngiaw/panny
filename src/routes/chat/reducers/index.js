@@ -25,7 +25,8 @@ export const reducer = (state = initialState, action) => {
             destination: action.payload.destIata,
             estimatedArrival: action.payload.time,
             timeRemaining: `${Math.floor(action.payload.minutes / 60)}H ${action.payload.minutes % 60}M`,
-            distanceRemaining: `${action.payload.distance} Mi`
+            distanceRemaining: `${action.payload.distanceToDestination} Mi`,
+            progress: action.payload.progress
           }
         }]
       });
