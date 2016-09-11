@@ -1,20 +1,30 @@
 import React, { Component } from 'react';
-import {
-  Grid,
-  Row
-} from 'react-bootstrap';
 import classes from './ChatView.scss';
+
+import ChatItems from './ChatItems';
+import ChatUserInput from './ChatUserInput';
 
 class MyRouteView extends Component {
   render() {
+    // const { chatItems, buttons } = this.props;
+    let chatItems = [];
+    for (let i = 0; i < 100; i++) {
+      chatItems.push(i);
+    }
+
+    let buttons = [];
+    for (let i = 0; i < 10; i++) {
+      buttons.push(i);
+    }
+
     return (
-      <Grid className={classes.chatView}>
-        <Row>
-          <p>Chat View</p>
-        </Row>
-      </Grid>
+      <div className={classes.chatView}>
+        <ChatItems chatItems={chatItems} />
+        <ChatUserInput buttons={buttons} />
+      </div>
     );
   }
 }
 
 export default MyRouteView;
+
