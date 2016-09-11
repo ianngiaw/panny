@@ -21,11 +21,11 @@ export const reducer = (state = initialState, action) => {
         chatItems: [...state.chatItems, {
           type: 'CurrentFlightCard',
           data: {
-            origin: originIata,
-            destination: destIata,
+            origin: action.payload.originIata,
+            destination: action.payload.destIata,
             estimatedArrival: action.payload.time,
-            timeRemaining: `${Math.floor(minutes / 60)}H ${minutes % 60}M`
-            distanceRemaining: `${distance} Mi`
+            timeRemaining: `${Math.floor(action.payload.minutes / 60)}H ${action.payload.minutes % 60}M`,
+            distanceRemaining: `${action.payload.distance} Mi`
           }
         }]
       });

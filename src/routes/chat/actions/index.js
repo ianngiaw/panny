@@ -13,10 +13,10 @@ export const getFlightInfo = () => {
         type: GET_FLIGHT_INFO_SUCCESS,
         payload
       });
-    })
+    });
   };
 };
 
 export const actionCreators = {
-  myAction
+  getFlightInfo
 };
