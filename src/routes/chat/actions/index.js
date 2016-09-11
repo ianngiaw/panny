@@ -36,7 +36,7 @@ export const selectButton = value => {
       case 'GET_RESTROOMS':
         dispatch(addUserText('Show me the status of the restrooms.'));
         setTimeout(() => {
-          dispatch(addPannyText('Here you go! It looks like their all occupied.'));
+          dispatch(addPannyText('Here you go! It looks like they\'re all occupied.'));
           dispatch(addRestroomCard(true));
         }, 500);
         break;
